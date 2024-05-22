@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>toys</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+
+  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+  <script src="https://raw.githack.com/fcor/arjs-gestures/master/dist/gestures.js"></script>
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+
+  <!-- Local StyleSheet -->
+  <link href="./style.css" rel="stylesheet"/>
+ 
+  
+  <!--Marker Handler Src-->
+  <script src="./js/addButtons.js"></script>
+  <script src="./js/markerHandler.js"></script>
+ 
+
+</head>
+
+<body style="margin : 0px; overflow: hidden;">
+
+  <a-scene 
+    embedded vr-mode-ui="enabled: false"     
+    arjs="sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960;debugUIEnabled: false;"
+    gesture-detector create-buttons>
+
+
+    <!-- Camera -->
+    <a-entity camera></a-entity>
+    <a-assets>
+      <a-asset-item id="Aeroplane" src="./Assets/Aeroplane/scene.gltf"></a-asset-item>
+    </a-assets>
+    <a-marker id="plane-marker" type="pattern" url="./Assets/Aeroplane/pattern-plane.patt" cursor="rayOrigin: mouse">
+      <a-entity id="plane-3D-model" position="-2 0 0" scale="15 15 15"gltf-model="#Plane-model"
+      gesture-handler></a-entity>
+      <a-plane position="0 0 0" width="1.5" height="1.5" rotation="-90 0 0">
+      <a-plane position="0 0.89 0.02" width="1.49" height="0.3"  rotation="0 0 0" color="#F0C30F">
+        <a-entity position="0 0 0.1" rotation="0 0 0" text="font:monoid; value: AEROPLANE; color:black; 
+        width: 1.8; height: 1; align: center"></a-entity>
+      </a-plane>
+      <a-entity position="0 0 0.1" rotation="0 0 0" text="color:black; align: center; width: 2; font: monoid; value: 
+      Discover the ultimate aviation experience for kids! \n\n Our Pull-back Aircraft Toy features lifelike details, durable quality, and safe, sharp-edge free design providing a fun and engaging way for children to play. \n\n It comes with a DISPLAY STAND and CARDBOARD RUNWAY for showcasing. \n\n Let your child's imagination soar with this exciting Aircraft Toy!
+      "></a-entity>
+      </a-plane>
+    </a-marker>
+
+    
+    <a-assets>
+        <a-asset-item id="Car" src="./Assets/car toy/scene.gltf"></a-asset-item>
+      </a-assets>
+      <a-marker id="toy-car-marker" type="pattern" url="./Assets/car toy/pattern-car.patt" cursor="rayOrigin: mouse">
+        <a-entity id="car-3D-model" position="-2 0 0" scale="15 15 15"gltf-model="#car-model"
+        gesture-handler></a-entity>
+        <a-plane position="0 0 0" width="1.5" height="1.5" rotation="-90 0 0">
+        <a-plane position="0 0.89 0.02" width="1.49" height="0.3"  rotation="0 0 0" color="#F0C30F">
+          <a-entity position="0 0 0.1" rotation="0 0 0" text="font:monoid; value: TOY CAR; color:black; 
+          width: 1.8; height: 1; align: center"></a-entity>
+        </a-plane>
+        <a-entity position="0 0 0.1" rotation="0 0 0" text="color:black; align: center; width: 2; font: monoid; value: 
+        All toys are made of fully high quality ABS plastic Non-toxic materials, 100% safe for kids. \n
+        Durable ABS high quality material for a never ending fun and learning \n
+        Even if Kids throw this item from the 4th floor of your house any, It will not break. \n
+        All tyres have friction power. \n 4X4 friction powered toys.
+        "></a-entity>
+        </a-plane>
+      </a-marker>
+    
+  </a-scene>
+
+  <!-- Button Main Div -->
+  <div id="button-div"></div>
+ 
+</body>
+
+</html>
